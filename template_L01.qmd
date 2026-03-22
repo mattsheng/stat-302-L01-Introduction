@@ -19,6 +19,16 @@ reference-location: margin
 citation-location: margin
 ---
 
+::: {.callout-tip icon=false}
+
+## Github Repo Link
+
+To link to your github **repo**sitory, appropriately edit the example link below. Meaning replace `https://your-github-repo-url` with your github repo url. Suggest verifying the link works before submitting.
+
+[https://your-github-repo-url](https://your-github-repo-url)
+
+:::
+
 ::: {.callout-note}
 **Make this document your own!** Meaning you should play with the layout and think about removing and adding items like sections (for example you should remove this callout block). Explore quarto markdown to add features like code-folding to your document.
 :::
@@ -59,23 +69,25 @@ Complete the following tasks and **include some indication that you have complet
 
 ### Task 1
 
-Download and install [R Software](https://cran.rstudio.com/).
+Download and install [R Software](https://cran.r-project.org/) **version 4.5.3**.
+
+- If you've previously installed R with version < 4.5.3, uninstall the old version first.
+- Windows users: [direct link](https://cran.r-project.org/bin/windows/base/R-4.5.3-win.exe)
+- Mac users
+  * Intel Mac: [direct link](https://cran.r-project.org/bin/macosx/big-sur-x86_64/base/R-4.5.3-x86_64.pkg)
+  * Apple Silicon (M1, M2, etc.): [direct link](https://cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.5.3-arm64.pkg)
 
 ### Task 2
 
 1.  Download and install [RStudio](https://posit.co/download/rstudio-desktop/).
+    - Windows users: [direct link](https://download1.rstudio.org/electron/windows/RStudio-2026.01.1-403.exe)
+    - Mac users: [direct link](https://download1.rstudio.org/electron/macos/RStudio-2026.01.1-403.dmg)
 2.  Open RStudio and ensure it and R have been properly installed.
 3.  Go to **Tools** \> **Global Options** and change the two indicated settings below and click **Apply**. Your other options are likely different than what is pictured. This is okay and we suggest you leave them as is until you become more familiar with RStudio.
 
-**See html file for missing figure**
+![](figure/rstudio-workspace.png){fig-align="center" width="400"}
 
 ### Task 3
-
-Take some time to explore the [Quarto](https://quarto.org/) and [ggplot2](https://ggplot2.tidyverse.org/index.html) websites. We suggest bookmarking them because they will be extremely useful references. 
-
-We highly recommend reading through the [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html).
-
-### Task 4
 
 Install the following packages:
 
@@ -83,17 +95,107 @@ Install the following packages:
 -   `skimr`
 -   `devtools`
 
+Easiest method: run the following code in RStudio's console
+
+```{r}
+#| eval: false
+#| echo: true
+
+install.packages(c("tidyverse", "skimr", "devtools"))
+```
+
+
+### Task 4a
+
+Create a [GitHub](http://github.com/signup) account.
+
+
+### Task 4b
+
+Install Git. If needed, see [Chapter 6 of Happy Git and GitHub for the useR](https://happygitwithr.com/install-git) for a detailed instruction.
+
+- Windows users
+  * Download and install [Git for Windows](https://gitforwindows.org/)
+  * **NOTE:** When asked about “Adjusting your PATH environment”, make sure to select “Git from the command line and also from 3rd-party software”.
+- Mac users
+  * Open the **Terminal** app on your computer
+  * Run this command in Terminal: `xcode-select --install`
+    + Accept the offer! Click on “Install”.
+
+Once you successfully installed Git, double-check following [6.1 - Git already installed?](https://happygitwithr.com/install-git#git-already-installed).
+
+
+### Task 4c
+
+Once Task 4a & 4b are done, we need to connect our local Git with GitHub, the remote Git server. To do so, we need to create a credential (**personal access token or PAT**) and have Git memorizes it.
+
+In RStudio's console, type and run 
+
+```{r}
+#| eval: false
+#| echo: true
+
+usethis::create_github_token()
+```
+
+* Fill out the **Note** section
+* Set **Expiration** to Custom -> 07/01/2026
+  + I **don't recommend** using the "No expiration" option
+  + Once your PAT expires, you need to redo Task 4c
+* No need to change the **Scope** section
+* Click "Generate token"
+* Copy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT.
+
+Go back to RStudio's console. Type and run
+
+```{r}
+#| eval: false
+#| echo: true
+
+gitcreds::gitcreds_set()
+```
+
+Paste the PAT in response to the dialogue in the console:
+
+```{bash}
+#| eval: false
+#| echo: true
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+
 ### Task 5
 
-1.  Download `L01_introduction.zip` from Canvas.
-2.  Unzip the file and place the `data_vis_labs` directory where you would like to keep all of your lab work for this course.
-3.  Open RStudio and create a project folder for this *existing directory*.
-4.  Rename `template_L01.qmd` to your `Lastname_Firstname_L01.qmd`
-5.  Render the file with `Cmd/Ctrl + Shift + K` or click the Render button.
+Since organization is essential for any data science project or work, we should begin by setting up an organizational structure for this course and its contents.
 
-### Task 6 (optional)
+0.  Setup a directory/folder on your laptop that will contain all your materials and work for this course. You may already have one setup and named. We will setup this directory and call it `stat-302`. Where this is located on your laptop is completely up to you.
+
+1.  Within `stat-302/`, place a copy of the course syllabus for future reference. We also will create a new sub-directory that will contain all labs for this course. For ease let us call it `labs`. So now we have `stat-302/labs/`.
+
+2.  Open RStudio and create a "New Project" using "Version Control" -> "Git"
+
+3.  Copy the URL from GitHub. Browse so that you place this project within the `stat-302/labs/` folder that you created.
+
+4.  Rename `template_L00.qmd` to your `Lastname_Firstname_L00.qmd`
+
+5.  Render the file with `Cmd/Ctrl + Shift + K` or click the **Render button**.
+
+
+### Task 6
+
+Take some time to explore the [Quarto](https://quarto.org/) and [ggplot2](https://ggplot2.tidyverse.org/index.html) websites. We suggest bookmarking them because they will be extremely useful references. 
+
+We highly recommend reading through the [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html).
+
+
+### Task 7 (optional)
 
 If you are new to RStudio we strongly recommend reading through Chapters 1-4 of the [Stat 202 text book](https://nustat.github.io/intro-stat-data-sci/)
+
 
 ## Exercise 1
 
