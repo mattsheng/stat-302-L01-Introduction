@@ -2591,7 +2591,7 @@ vertical-align: -.125em;
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pieces_per_year <span class="ot">&lt;-</span> legosets <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># new indicator variable</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Duplo =</span> <span class="fu">ifelse</span>(Theme <span class="sc">==</span> <span class="st">&quot;Duplo&quot;</span>, <span class="st">&quot;Duplo&quot;</span>, <span class="st">&quot;Lego&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Duplo =</span> <span class="fu">if_else</span>(Theme <span class="sc">==</span> <span class="st">&quot;Duplo&quot;</span>, <span class="st">&quot;Duplo&quot;</span>, <span class="st">&quot;Lego&quot;</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group_by() both year and Duplo</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarize() mean pieces</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
