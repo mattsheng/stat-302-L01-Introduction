@@ -124,10 +124,31 @@ Install Git. If needed, see [Chapter 6 of Happy Git and GitHub for the useR](htt
 
 Once you successfully installed Git, double-check following [6.1 - Git already installed?](https://happygitwithr.com/install-git#git-already-installed).
 
-
 ### Task 4c
 
-Once Task 4a & 4b are done, we need to connect our local Git with GitHub, the remote Git server. To do so, we need to create a credential (**personal access token or PAT**) and have Git memorizes it.
+Introduce yourself to Git. In the terminal, substitute your name and **the email associated with your GitHub account**, and run
+
+```{bash}
+#| eval: false
+#| echo: true
+
+git config --global user.name "Jane Doe"
+git config --global user.email "jane@example.com"
+```
+
+Double-check using the following command line
+
+```{bash}
+#| eval: false
+#| echo: true
+
+git config --global --list
+```
+
+
+### Task 4d
+
+Once Task 4a-4c are done, we need to connect our local Git with GitHub, the remote Git server. To do so, we need to create a credential (**personal access token or PAT**) and have Git memorizes it.
 
 In RStudio's console, type and run 
 
