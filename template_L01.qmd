@@ -348,9 +348,9 @@ Use an appropriate graph to plot the average number of pieces over time. Have ei
 
 pieces_per_year <- legosets |>
   # new indicator variable
-  mutate(Duplo = ifelse(Theme == "Duplo",
-                        "Duplo", 
-                        "Lego"))
+  mutate(
+    Duplo = if_else(Theme == "Duplo", "Duplo", "Lego")
+  )
   # group_by() both year and Duplo
   # summarize() mean pieces
 
