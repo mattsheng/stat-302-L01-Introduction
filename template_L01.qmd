@@ -60,7 +60,7 @@ This is a template file and may not contain everything seen in the instructions 
 
 1.  All packages should always be loaded at the TOP of the document.
 
-2.  All data should be in your `/data` subdirectory. Data loading should go at the top of the document under the libraries.
+2.  All data should be in your `data/` subdirectory. Data loading should go at the top of the document under the libraries.
 :::
 
 ## Tasks
@@ -115,7 +115,7 @@ Create a [GitHub](http://github.com/signup) account.
 Install Git. If needed, see [Chapter 6 of Happy Git and GitHub for the useR](https://happygitwithr.com/install-git) for a detailed instruction.
 
 - Windows users
-  * Download and install [Git for Windows](https://gitforwindows.org/)
+  * Download and install [Git for Windows](https://git-scm.com/install/windows)
   * **NOTE:** When asked about “Adjusting your PATH environment”, make sure to select “Git from the command line and also from 3rd-party software”.
 - Mac users
   * Open the **Terminal** app on your computer
@@ -325,7 +325,7 @@ YOUR SOLUTION HERE
 
 :::
 
-Now remake the plot BUT with the improvements.
+Now remake the plot BUT with the improvements addressing the issues you noted above.
 
 ::: {.callout-tip icon="false"}
 ## Solution
@@ -338,7 +338,7 @@ YOUR SOLUTION HERE
 
 Now you try, let's look at how the number of pieces per set has changed over time. Because Duplo sets are much smaller (since they're designed for toddlers), we made a special indicator variable for them in the code below.
 
-Use an appropriate graph to plot the average number of pieces over time. Have either separate lines or separate plots for the Duplo and Lego categories. Be sure the title, x-axis, and y-axis are properly labeled. 
+Use an appropriate graph to plot the number of pieces over time. Have either separate lines or separate plots for the Duplo and Lego categories. Be sure the title, x-axis, and y-axis are properly labeled. Add a pre-set theme to make the background look nicer.
 
 ```{r}
 #| label: ex4-data-wrangle
